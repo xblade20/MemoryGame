@@ -158,4 +158,7 @@ function showWinModal() {
 function restartGame() {
   document.getElementById("win-modal").style.display = "none";
   initGame();
+
+  hasStarted = false;
+  startTimer();
 }
