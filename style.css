@@ -2,39 +2,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
   
-  body {
+body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f7f7f7;
-  }
+    padding: 10px; /* Add padding to avoid edge cropping */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
   
-  .game-container {
+.game-container {
     text-align: center;
-  }
+    max-width: 100%; /* Ensure the container doesn't exceed the viewport */
+    width: 100%; /* Let it adjust to screen width */
+}
   
-  h1 {
+h1 {
     font-size: 2rem;
     margin-bottom: 10px;
-  }
+}
   
-  .game-info {
+.game-info {
     margin-bottom: 20px;
-  }
+}
   
-  .game-board {
+.game-board {
     display: grid;
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: repeat(4, 100px);
     gap: 10px;
     justify-content: center;
-  }
+    overflow: auto; /* Ensure it scrolls if the grid doesn't fit */
+}
   
-  .card {
+.card {
     width: 100px;
     height: 100px;
     background-color: #4CAF50;
@@ -43,23 +48,23 @@
     align-items: center;
     cursor: pointer;
     border-radius: 8px;
-    font-size: 40px; /* Bigger icons */
-    color: transparent; /* Icon is hidden by default */
-    transition: transform 0.5s ease; /* Animation for flip effect */
+    font-size: 40px;
+    color: transparent;
+    transition: transform 0.5s ease;
     transform-style: preserve-3d;
-  }
+}
   
-  .card.flipped {
+.card.flipped {
     background-color: #fff;
-    color: #000; /* Reveal the icon when flipped */
-    transform: rotateY(180deg); /* Flip effect */
-  }
+    color: #000;
+    transform: rotateY(180deg);
+}
   
-  .card.flipping {
-    pointer-events: none; /* Prevent clicking while flipping */
-  }
+.card.flipping {
+    pointer-events: none;
+}
   
-  .modal {
+.modal {
     display: none;
     position: fixed;
     top: 0;
@@ -69,17 +74,18 @@
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-  }
+}
   
-  .modal-content {
+.modal-content {
     background-color: white;
     padding: 20px;
     text-align: center;
     border-radius: 8px;
-    width: 300px;
-  }
+    width: 90%; /* Adjust modal width for mobile */
+    max-width: 300px; /* Ensure it doesn't get too wide */
+}
   
-  #restart-btn {
+#restart-btn {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 1rem;
@@ -88,9 +94,27 @@
     border: none;
     cursor: pointer;
     border-radius: 8px;
-  }
+}
   
-  #restart-btn:hover {
+#restart-btn:hover {
     background-color: #0056b3;
-  }
+}
   
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+    .game-board {
+        grid-template-columns: repeat(4, 80px); /* Adjust card size for smaller screens */
+        grid-template-rows: repeat(4, 80px);
+        gap: 8px;
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Adjust title size */
+    }
+}
