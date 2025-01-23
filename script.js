@@ -160,5 +160,4 @@ function restartGame() {
   initGame();
 
   hasStarted = false;
-  startTimer();
 }
