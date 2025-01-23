@@ -11,14 +11,15 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f7f7f7;
-    padding: 10px; /* Add padding to avoid edge cropping */
+    padding: 10px; /* Prevent content from touching screen edges */
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
   
 .game-container {
     text-align: center;
     max-width: 100%; /* Ensure the container doesn't exceed the viewport */
-    width: 100%; /* Let it adjust to screen width */
+    width: 100%;
+    padding: 0 15px; /* Add left and right gap */
 }
   
 h1 {
@@ -116,5 +117,9 @@ h1 {
 
     h1 {
         font-size: 1.5rem; /* Adjust title size */
+    }
+
+    .game-container {
+        padding: 0 20px; /* Add more padding for extra gap on smaller screens */
     }
 }
